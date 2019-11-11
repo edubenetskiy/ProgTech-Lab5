@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/play.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess Who!</title>
+</head>
+<body>
+<main>
+    <h1>Guess Who!</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Main Page</a>
+    </nav>
+    <h2>Level</h2>
+    <p>{{ level }}</p>
+    <h2>Guess Who Is This:</h2>
+    <img id="person-of-interest" src="{{ image_url }}" alt="A photo of the person to be guessed">
+    <h2>Answers:</h2>
+    <ul>
+        {% for answer in answers %}
+            <li>
+                <a href="{{ url_for('check', given_answer=answer) }}">{{ answer }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</main>
+</body>
+</html>

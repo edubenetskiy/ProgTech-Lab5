@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/index.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess Who!</title>
+</head>
+<body>
+<header>
+    <h1>Guess Who!</h1>
+    <h2>the game</h2>
+</header>
+
+<main>
+
+    {% if get_flashed_messages() %}
+        {% for message in get_flashed_messages() %}
+            <p class="error-message">{{ message }}</p>
+        {% endfor %}
+
+    {% endif %}
+
+    <section>
+        <h1>About this game</h1>
+        <p>Guess well-known people by photo!</p>
+    </section>
+
+    <nav>
+        <h1>Select Mode</h1>
+        <ul>
+            <li>
+                <h1><a href="{{ url_for('play',level='easy') }}">Easy</a></h1>
+                <p>Top 10 names</p>
+            </li>
+            <li>
+                <h1><a href="{{ url_for('play',level='normal') }}">Normal</a></h1>
+                <p>Top 50 names</p>
+            </li>
+            <li>
+                <h1><a href="{{ url_for('play',level='hard') }}">Hard</a></h1>
+                <p>Top 100 names</p>
+            </li>
+        </ul>
+    </nav>
+</main>
+
+<main>
+
+</main>
+
+<footer>
+    <p>© Egor Dubenetskii, 2019</p>
+</footer>
+</body>
+</html>
